@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ayshu (COCO) 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#080012;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,0,128,.18), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(120,0,255,.20), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(255,0,80,.12), transparent 35%);
+    z-index:-3;
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:.7;
+    animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.15; transform:scale(.7);}
+    to{opacity:1; transform:scale(1.4);}
+}
+
+/* ================= FLOATING HEARTS ================= */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    overflow:hidden;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:20px;
+    animation:floatHeart linear infinite;
+    opacity:.7;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:.8;
+    }
+    90%{
+        opacity:.7;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    backdrop-filter:blur(15px);
+    background:rgba(8,0,18,.65);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#ff6bcf;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ff69c9;
+}
+
+.menu{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 70px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.small-title{
+    color:#ff71ce;
+    letter-spacing:4px;
+    font-size:14px;
+    margin-bottom:20px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-size:clamp(48px,9vw,100px);
+    line-height:1;
+    margin-bottom:25px;
+    background:linear-gradient(
+        90deg,
+        #ff5ac8,
+        #fff,
+        #a86bff,
+        #ff5ac8
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:gradientMove 6s infinite linear;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0%;}
+    100%{background-position:300%;}
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#d6c9df;
+    line-height:1.8;
+    font-size:17px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 24px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(255,50,180,.25);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#ff3cac,#8b5cff);
+    border:none;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:100px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title span{
+    color:#ff62ca;
+    font-size:14px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    font-size:clamp(32px,5vw,55px);
+    margin-top:12px;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:30px 22px;
+    border-radius:25px;
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(15px);
+    transition:.4s;
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(255,70,190,.5);
+    box-shadow:0 20px 50px rgba(255,0,150,.12);
+}
+
+.card-icon{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#bdb0c8;
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    max-width:850px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:linear-gradient(
+        transparent,
+        #ff4fc3,
+        #914cff,
+        transparent
+    );
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    margin-left:50%;
+}
+
+.timeline-dot{
+    position:absolute;
+    top:25px;
+    width:14px;
+    height:14px;
+    background:#ff5cc9;
+    border-radius:50%;
+    box-shadow:0 0 20px #ff5cc9;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-7px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-7px;
+}
+
+.timeline-box{
+    padding:22px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+}
+
+.timeline-box h3{
+    margin-bottom:10px;
+}
+
+.timeline-box p{
+    color:#bfb1c8;
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.stat{
+    text-align:center;
+    padding:35px 20px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:25px;
+}
+
+.stat-number{
+    font-size:45px;
+    font-weight:bold;
+    color:#ff67cd;
+}
+
+.stat p{
+    color:#bcaec6;
+    margin-top:8px;
+}
+
+/* ================= QUOTE ================= */
+
+.quote{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    padding:60px 30px;
+    border-radius:35px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,0,160,.1),
+            rgba(120,0,255,.12)
+        );
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.quote .emoji{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.quote p{
+    font-size:clamp(20px,3vw,30px);
+    line-height:1.6;
+    font-weight:bold;
+}
+
+.quote span{
+    display:block;
+    margin-top:20px;
+    color:#ff6bcf;
+}
+
+/* ================= SURPRISE ================= */
+
+.surprise{
+    text-align:center;
+}
+
+.secret-box{
+    max-width:800px;
+    margin:auto;
+    padding:45px 30px;
+    border-radius:30px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.secret-message{
+    display:none;
+    margin-top:30px;
+    animation:appear .8s ease;
+}
+
+.secret-message h3{
+    font-size:32px;
+    margin-bottom:20px;
+    color:#ff6bcf;
+}
+
+.secret-message p{
+    color:#d4c6dd;
+    line-height:1.9;
+    font-size:16px;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= MUSIC BUTTON ================= */
+
+.music-control{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:999;
+}
+
+.music-btn{
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff3cac,#784cff);
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+    box-shadow:0 8px 30px rgba(255,0,150,.35);
+    transition:.3s;
+}
+
+.music-btn:hover{
+    transform:scale(1.1);
+}
+
+.music-label{
+    position:absolute;
+    right:70px;
+    bottom:8px;
+    white-space:nowrap;
+    background:rgba(20,10,30,.9);
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:12px;
+    color:#ffd7f4;
+    opacity:0;
+    transform:translateX(10px);
+    transition:.3s;
+    pointer-events:none;
+}
+
+.music-control:hover .music-label{
+    opacity:1;
+    transform:translateX(0);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:45px 20px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#9d8fa8;
+}
+
+footer strong{
+    color:#ff67cd;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    nav{
+        padding:16px 20px;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:15px;
+        right:15px;
+        display:none;
+        flex-direction:column;
+        padding:20px;
+        border-radius:20px;
+        background:rgba(15,5,25,.95);
+        border:1px solid rgba(255,255,255,.1);
+        text-align:center;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    section{
+        padding:75px 20px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .timeline::before{
+        left:10px;
+    }
+
+    .timeline-item{
+        width:100%;
+        margin-left:0 !important;
+        text-align:left !important;
+        padding:20px 10px 20px 40px;
+    }
+
+    .timeline-item:nth-child(odd){
+        text-align:left;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot{
+        left:3px;
+        right:auto;
+    }
+
+    .quote{
+        padding:40px 20px;
+    }
+
+    .music-btn{
+        width:55px;
+        height:55px;
+        font-size:22px;
+    }
+
+}
+
+/* ================= CONFETTI ================= */
+
+.confetti{
+    position:fixed;
+    width:8px;
+    height:14px;
+    top:-20px;
+    z-index:9999;
+    animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND STARS -->
+<div class="stars" id="stars"></div>
+
+<!-- FLOATING HEARTS -->
+<div class="hearts" id="hearts"></div>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        Ayshu ❤️
+    </div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#why">Why You</a>
+        <a href="#memories">Memories</a>
+        <a href="#moments">Moments</a>
+        <a href="#surprise">Surprise</a>
+    </div>
+
+    <div class="menu" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            For Someone Special ✨
+        </div>
+
+        <h1>
+            My Ayshu Maa 💖
+        </h1>
+
+        <p>
+            Some people enter our lives and make everything a little
+            brighter, funnier and crazier. You're definitely one of those
+            people. Nin yavathe Idru my special person madam ❤️
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#why" class="btn btn-primary">
+                Discover Why COCO ✨
+            </a>
+
+            <button class="btn" onclick="showSurprise()">
+                Don't Click this Maa 😏
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY YOU ================= -->
+
+<section id="why">
+
+    <div class="section-title">
+
+        <span>Because You're Different</span>
+
+        <h2>Why You? 💕</h2>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                😂
+            </div>
+
+            <h3>
+                Always Make Me Laugh
+            </h3>
+
+            <p>
+                Somehow you can turn even the most boring moment
+                into something unforgettable.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🤝
+            </div>
+
+            <h3>
+                Always There
+            </h3>
+
+            <p>
+                Through random talks, stupid jokes and everything
+                in between, you're always there.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                ✨
+            </div>
+
+            <h3>
+                One of a Kind
+            </h3>
+
+            <p>
+                There is literally nobody else like you.
+                That's what makes you special.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🫶
+            </div>
+
+            <h3>
+                Best Friend Energy
+            </h3>
+
+            <p>
+                Chaos, laughter, random conversations and
+                memories — that's our friendship.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MEMORIES ================= -->
+
+<section id="memories">
+
+    <div class="section-title">
+
+        <span>Our Story</span>
+
+        <h2>Friendship Memories 🥹</h2>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-box">
+
+                <h3>
+                    The Beginning 🌱
+                </h3>
+
+                <p>
+                    Somewhere along the way, our friendship
+                    started becoming something really special.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-box">
+
+                <h3>
+                    Random Conversations 😂
+                </h3>
+
+                <p>
+                    From serious talks to completely useless
+                    conversations that somehow last forever.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-box">
+
+                <h3>
+                    Crazy Moments 🤣
+                </h3>
+
+                <p>
+                    The kind of moments that make absolutely
+                    no sense to anyone except us.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-box">
+
+                <h3>
+                    Still Here 🫶
+                </h3>
+
+                <p>
+                    And here we are, creating more memories
+                    and hopefully many more to come.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<section id="moments">
+
+    <div class="section-title">
+
+        <span>Our Friendship</span>
+
+        <h2>Some Random Facts 😂</h2>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-number">
+                ∞
+            </div>
+
+            <p>
+                Random Conversations
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                😂
+            </div>
+
+            <p>
+                Laughing Moments
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                ❤️
+            </div>
+
+            <p>
+                Memories
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUOTE ================= -->
+
+<section>
+
+    <div class="quote">
+
+        <div class="emoji">
+            🥹
+        </div>
+
+        <p>
+            "Some friendships aren't planned.
+            They just happen... and somehow become
+            one of the most beautiful parts of life."
+        </p>
+
+        <span>
+            — For My COCO ❤️
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SURPRISE ================= -->
+
+<section class="surprise" id="surprise">
+
+    <div class="section-title">
+
+        <span>One Last Thing</span>
+
+        <h2>There's Something For You 👀</h2>
+
+    </div>
+
+    <div class="secret-box">
+
+        <p>
+            You probably shouldn't click the button...
+            but since you're already here... 😂
+        </p>
+
+        <br>
+
+        <button class="btn btn-primary" onclick="showSurprise()">
+            Open Your Surprise 💌
+        </button>
+
+        <div class="secret-message" id="secretMessage">
+
+            <h3>
+                Hey COCO ❤️
+            </h3>
+
+            <p>
+                You're not just a friend...
+                You're one of those rare people who makes life
+                a little better just by being there.
+                <br><br>
+
+                Never change who you are. ✨
+                <br><br>
+
+                You're officially stuck with me as your best friend. 😂🫶
+                <br><br>
+
+                Nin jaga na yaru replace madakke agalla.
+                <br><br>
+
+                I don't know what the future looks like,
+                but one thing I know is that this friendship
+                means a lot to me.
+                <br><br>
+
+                I'm not scared of many things...
+                But just scared to lose this friendship.
+                <br><br>
+
+                And I promise you one thing...
+                Even if I lose you, I'll wait for you.
+                <br><br>
+
+                You remain special, Ayshu. ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    Made with ❤️ for my
+    <strong>
+        Ayshu (COCO ❤️)
+    </strong>
+
+    <br><br>
+
+    Best friends forever ✨
+
+</footer>
+
+
+<!-- ================= MUSIC ================= -->
+
+<audio id="music" loop preload="auto">
+
+    <source src="Kanne.mp3" type="audio/mpeg">
+
+</audio>
+
+<div class="music-control">
+
+    <div class="music-label">
+        🎵 Kanne playing...
+    </div>
+
+    <button
+        class="music-btn"
+        id="musicBtn"
+        onclick="toggleMusic()"
+        title="Play Music"
+    >
+        🎵
+    </button>
+
+</div>
+
+
+<script>
+
+/* ================= STARS ================= */
+
+const starsContainer = document.getElementById("stars");
+
+for(let i = 0; i < 140; i++){
+
+    const star = document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    star.style.animationDuration =
+        (2 + Math.random() * 4) + "s";
+
+    starsContainer.appendChild(star);
+
+}
+
+
+/* ================= FLOATING HEARTS ================= */
+
+const heartsContainer =
+    document.getElementById("hearts");
+
+const heartSymbols = [
+    "❤️",
+    "💖",
+    "💕",
+    "💗",
+    "💓",
+    "✨"
+];
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML =
+        heartSymbols[
+            Math.floor(
+                Math.random() *
+                heartSymbols.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+    heart.style.fontSize =
+        (14 + Math.random() * 20) + "px";
+
+    heart.style.animationDuration =
+        (7 + Math.random() * 8) + "s";
+
+    heart.style.animationDelay =
+        Math.random() * 4 + "s";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 16000);
+
+}
+
+setInterval(createHeart, 700);
+
+
+/* ================= MOBILE MENU ================= */
+
+function toggleMenu(){
+
+    const nav =
+        document.getElementById("navLinks");
+
+    nav.classList.toggle("active");
+
+}
+
+
+/* Close menu after clicking link */
+
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+        .getElementById("navLinks")
+        .classList.remove("active");
+
+    });
+
+});
+
+
+/* ================= SURPRISE ================= */
+
+function showSurprise(){
+
+    const message =
+        document.getElementById("secretMessage");
+
+    message.style.display = "block";
+
+    message.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+    createConfetti();
+
+}
+
+
+/* ================= CONFETTI ================= */
+
+function createConfetti(){
+
+    const symbols = [
+        "❤️",
+        "💖",
+        "✨",
+        "💕",
+        "🎉",
+        "💗"
+    ];
+
+    for(let i = 0; i < 60; i++){
+
+        const piece =
+            document.createElement("div");
+
+        piece.classList.add("confetti");
+
+        piece.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        piece.style.fontSize =
+            (12 + Math.random() * 18) + "px";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 5000);
+
+    }
+
+}
+
+
+/* ================= MUSIC ================= */
+
+const music =
+    document.getElementById("music");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+let isPlaying = false;
+
+
+/* Toggle music */
+
+function toggleMusic(){
+
+    if(isPlaying){
+
+        music.pause();
+
+        musicBtn.innerHTML = "🎵";
+
+        isPlaying = false;
+
+    }else{
+
+        music.play()
+        .then(() => {
+
+            musicBtn.innerHTML = "⏸️";
+
+            isPlaying = true;
+
+        })
+        .catch(() => {
+
+            alert(
+                "Music couldn't start. Make sure Kanne.mp3 is in the same folder as index.html."
+            );
+
+        });
+
+    }
+
+}
+
+
+/* Change button when song ends */
+
+music.addEventListener("ended", () => {
+
+    isPlaying = false;
+
+    musicBtn.innerHTML = "🎵";
+
+});
+
+
+/* ================= MUSIC KEYBOARD ================= */
+
+document.addEventListener("keydown", function(event){
+
+    if(event.code === "Space"){
+
+        event.preventDefault();
+
+        toggleMusic();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
